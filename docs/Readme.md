@@ -1,0 +1,80 @@
+## Hướng dẫn cài đặt ZAMMAD TICKET
+
+### Chuẩn bị
+
+#### Bắt buộc
+- 01 Máy chủ CentOS 7 - 64 bit, có kết nối internet. Nếu có IP tĩnh càng tốt. Trong lab này sẽ dùng IP Private
+
+- 01 địa chỉ email (có thể sử dụng gmail) để làm email gửi thông báo khi đăng ký tài khoản, khi gửi thông báo hàng hoạt tới người dùng.
+- 01 hoặc nhiều địa chỉ email của các group trong công ty, ví dụ `sales@hoccchudong.com, tech@hocchudong.com ...`. Đây là các email để khi có ticket thì sẽ gửi thông tin cho người dùng. Lưu ý đây là tài khoản email chứ không phải mail alias.
+
+#### Tùy chọn
+- 01 tên miền và khai báo subdomain, ví dụ ticket.hocchudong.com
+- 01 hoặc nhiều bot của telegram
+- 01 tài khoản facebook app
+
+### Các bước cài đặt
+
+#### Thiết lập IP và cấu hình firewall
+
+- Trong quá trình lab thì không cần đặt IP tĩnh và có thể tắt iptables.
+- Khuyến cáo bật Iptables và mở các port cần thiết.
+
+
+#### Cài đặt các gói bổ trợ.
+
+- Update và cài đặt các gói bổ trợ sử dụng trong quá trình cấu hình.
+	```
+	yum install epel-release -y
+	yum update -y
+
+	yum install wget byobu -y
+	```
+
+- Cài đặt java
+	``
+	rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+	``
+
+- Khai báo repo của elastic
+	```
+	echo "[elasticsearch-5.x]
+	name=Elasticsearch repository for 5.x packages
+	baseurl=https://artifacts.elastic.co/packages/5.x/yum
+	gpgcheck=1
+	gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+	enabled=1
+	autorefresh=1
+	type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
+	```
+
+- Cài đặt elastic
+	```
+	yum update -y
+
+	yum -y install java elasticsearch
+	```
+
+- Cài đặt plugin cho elastic để hỗ trợ zammad
+	```
+	/usr/share/elasticsearch/bin/elasticsearch-plugin install ingest-attachment
+	```
+
+- Khởi động và kiểm tra hoạt động của elastic và kích hoạt.
+	```
+	systemctl daemon-reload
+	systemctl enable elasticsearch
+	systemctl start elasticsearch
+	systemctl status elasticsearch
+	````
+
+#### Cài đặt và cấu hình zammad
+
+- Cài đặt zammad
+```
+wget -O /etc/yum.repos.d/zammad.repo https://dl.packager.io/srv/zammad/zammad/stable/installer/el/7.repo
+
+yum -y install zammad
+```
+
+- Sửa file nginx với hostname 
