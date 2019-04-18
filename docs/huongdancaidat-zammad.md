@@ -54,7 +54,7 @@ hostnamectl set-hostname ticket
 ```	
 
 - Cài đặt java
-	``
+	```
 	rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 	```
 
