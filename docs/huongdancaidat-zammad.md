@@ -114,11 +114,21 @@ yum -y install zammad
 sed -i s'/localhost/ticket.hocchudong.com/'g  /etc/nginx/conf.d/zammad.conf
 ```
 
+
+#### Cài đặt 
 #### Khai báo các cấu hình cơ bản cho zammad
 
 - Lưu ý: Trước đó cần trỏ domain ticket.hocchudong.com với địa chỉ IP `157.230.99.32`
 
-- Đăng nhập vào domain `htts://ticket.hocchudong.com`
+- Đăng nhập vào domain `htts://ticket.hocchudong.com` để thực hiện thiết lập ban đầu cho ZAMMAD
+
+- Chọn `Setup new System`
+![zammad1](../images/zammad1.png)
+
+
+- Khai báo tên và email quản trị. Lưu ý đây là tài khoản admin của hệ thống.
+
+![zammad2](../images/zammad2.png)
 
 
 
