@@ -54,22 +54,22 @@ hostnamectl set-hostname ticket
 ```	
 
 - Cài đặt java
-	```
-	rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
-	```
+```
+rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+```
 
 - Khai báo repo của elastic
 
-		```sh
-		echo "[elasticsearch-5.x]
-		name=Elasticsearch repository for 5.x packages
-		baseurl=https://artifacts.elastic.co/packages/5.x/yum
-		gpgcheck=1
-		gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-		enabled=1
-		autorefresh=1
-		type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
-		```
+```sh
+echo "[elasticsearch-5.x]
+name=Elasticsearch repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
+```
 
 - Cài đặt elastic
 	```
