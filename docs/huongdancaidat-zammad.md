@@ -11,9 +11,13 @@
 ### Chuẩn bị
 
 #### Bắt buộc
-- 01 Máy chủ CentOS 7 - 64 bit, có kết nối internet. Nếu có điều kiện nên sử dụng IP Public. Trong hướng dẫn này mình sử dụng IP: `157.230.99.32`
+- 01 Máy chủ CentOS 7 - 64 bit, có kết nối internet.  Cấu hình tối thiểu: 4GB RAM, 02 CPU, 20GB Disk. Nên dùng RAM 4GB vì khi cài elastic sẽ có cảnh báo về RAM nếu thấp hơn.
 
-- 01 địa chỉ email (có thể sử dụng gmail) để làm email gửi thông báo khi đăng ký tài khoản, khi gửi thông báo hàng hoạt tới người dùng.
+- Sử dụng IP public, trong ví dụ này sẽ dùng IP: `157.230.99.32`
+
+- 01 địa chỉ email (có thể sử dụng gmail) để làm email gửi thông báo khi đăng ký tài khoản, khi gửi thông báo hàng hoạt tới người dùng. Trong ví dụ này sẽ dùng email infohocchudong@gmail.com và thiết lập chế độ cho phép đăng nhập ít bảo mật của gmail để thực hiện test (https://myaccount.google.com/u/2/lesssecureapps). Đối với công ty thì nên dùng mail với tên miền của công ty thì uy tín hơn :).
+
+
 - 01 hoặc nhiều địa chỉ email của các group trong công ty, ví dụ `sales@hoccchudong.com, tech@hocchudong.com ...`. Đây là các email để khi có ticket thì sẽ gửi thông tin cho người dùng. Lưu ý đây là tài khoản email chứ không phải mail alias.
 
 #### Tùy chọn
@@ -48,7 +52,7 @@ hostnamectl set-hostname ticket
 - Cài đặt java
 	``
 	rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
-	``
+	```
 
 - Khai báo repo của elastic
 
