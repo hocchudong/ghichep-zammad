@@ -1,5 +1,13 @@
 ## Hướng dẫn cài đặt ZAMMAD TICKET
 
+### Giới thiệu
+- Là nền tảng để triển khai hệ thống TICKET. Tương đương với vai trò như của các sản phẩm OSTicket.
+- Tích hợp với các kênh như web, facebook, telegram để nhận và tương tác ticket.
+- Tích hợp sẵn hệ thống livechat và cung cấp thông tin để tích hợp.
+- Sử dụng elasticsearch.
+- Cung cấp API, phù hợp tích hợp vào các giải pháp hiện có.
+- Có bản OpenSource
+
 ### Chuẩn bị
 
 #### Bắt buộc
@@ -30,6 +38,12 @@
 
 	yum install wget byobu -y
 	```
+	
+- Đặt hostname cho server
+
+```
+hostnamectl set-hostname ticket
+```	
 
 - Cài đặt java
 	``
@@ -68,13 +82,33 @@
 	systemctl status elasticsearch
 	````
 
+- Khởi động lại máy chủ
+
+	```
+	init 6
+	```
+	
 #### Cài đặt và cấu hình zammad
 
 - Cài đặt zammad
+
 ```
 wget -O /etc/yum.repos.d/zammad.repo https://dl.packager.io/srv/zammad/zammad/stable/installer/el/7.repo
 
 yum -y install zammad
 ```
 
-- Sửa file nginx với hostname 
+- Sửa dòng `server_name localhost` thành server_name ticket.hocchudong.com của  file ` /etc/nginx/conf.d/zammad.conf` để có thể vào được bằng domain. Dùng lệnh `sed` để sửa.
+
+
+```
+sed -i s'/localhost/ticket.hocchudong.com/'g  /etc/nginx/conf.d/zammad.conf
+```
+
+#### Khai báo các cấu hình cơ bản cho zammad
+
+- Đăng nhập vào domain `htts://ticket.hocchudong.com`
+
+
+
+
