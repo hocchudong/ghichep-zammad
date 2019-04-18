@@ -11,7 +11,7 @@
 ### Chuẩn bị
 
 #### Bắt buộc
-- 01 Máy chủ CentOS 7 - 64 bit, có kết nối internet. Nếu có IP tĩnh càng tốt. Trong lab này sẽ dùng IP Private
+- 01 Máy chủ CentOS 7 - 64 bit, có kết nối internet. Nếu có điều kiện nên sử dụng IP Public. Trong hướng dẫn này mình sử dụng IP: `157.230.99.32`
 
 - 01 địa chỉ email (có thể sử dụng gmail) để làm email gửi thông báo khi đăng ký tài khoản, khi gửi thông báo hàng hoạt tới người dùng.
 - 01 hoặc nhiều địa chỉ email của các group trong công ty, ví dụ `sales@hoccchudong.com, tech@hocchudong.com ...`. Đây là các email để khi có ticket thì sẽ gửi thông tin cho người dùng. Lưu ý đây là tài khoản email chứ không phải mail alias.
@@ -51,16 +51,17 @@ hostnamectl set-hostname ticket
 	``
 
 - Khai báo repo của elastic
-	```
-	echo "[elasticsearch-5.x]
-	name=Elasticsearch repository for 5.x packages
-	baseurl=https://artifacts.elastic.co/packages/5.x/yum
-	gpgcheck=1
-	gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-	enabled=1
-	autorefresh=1
-	type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
-	```
+
+		```sh
+		echo "[elasticsearch-5.x]
+		name=Elasticsearch repository for 5.x packages
+		baseurl=https://artifacts.elastic.co/packages/5.x/yum
+		gpgcheck=1
+		gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+		enabled=1
+		autorefresh=1
+		type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
+		```
 
 - Cài đặt elastic
 	```
@@ -106,6 +107,8 @@ sed -i s'/localhost/ticket.hocchudong.com/'g  /etc/nginx/conf.d/zammad.conf
 ```
 
 #### Khai báo các cấu hình cơ bản cho zammad
+
+- Lưu ý: Trước đó cần trỏ domain ticket.hocchudong.com với địa chỉ IP `157.230.99.32`
 
 - Đăng nhập vào domain `htts://ticket.hocchudong.com`
 
