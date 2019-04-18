@@ -131,5 +131,24 @@ sed -i s'/localhost/ticket.hocchudong.com/'g  /etc/nginx/conf.d/zammad.conf
 ![zammad2](../images/zammad2.png)
 
 
+- Khai báo tên công ty và lựa chọn logo nếu bạn muốn.
+
+![zammad3](../images/zammad3.png)
+
+- Lựa chọn khai báo Server mail để gửi thông báo. Đây là email thông báo khi xác thực người đăng ký hoặc các email từ hệ thống. Lưu ý nó khác với email của các group trên hệ thống ticket.
+
+- Do mình chọn một SMTP ở bên ngoài (trong ví dụ này là của gmail) nên sẽ chọn như ảnh. Nếu bạn muốn chính máy cài zammad gửi thì chọn ngược lại. Đối với phần gửi local thì sẽ vào spam nên không khuyến cáo.
+
+![zammad4](../images/zammad4.png)
+
+- Nhập thông tin về tài khoản email dùng để gửi thông báo, trong ví dụ này chọn email `infohocchudong@gmail`. Cần bật chế độ đăng nhập từ nhiều thiết bị (cho phép chế độ bảo mật kém của gmail).
+
+![zammad5](../images/zammad5.png)
 
 
+- Bỏ qua bước tạo các channel (sau này sẽ thiết lập sau).
+
+![zammad6](../images/zammad6.png)
+
+
+- Hoàn thành bước thiết lập ban đầu, chuyển sang bước khai báo các phần để sử dụng trong thực tế.
