@@ -2,4 +2,4 @@
 
 ## Mục lục
 
-[01. Hướng dẫn cài đặt zammad trên CentOS 7](../docs/huongdancaidat-zammad.md)
+[01. Hướng dẫn cài đặt zammad trên CentOS 7](./docs/huongdancaidat-zammad.md)
