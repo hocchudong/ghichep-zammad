@@ -1,8 +1,12 @@
 ## Hướng dẫn cài đặt ZAMMAD TICKET
 
 ### Giới thiệu
+
+Ngoài các tính năng phải có của TICKET thì ZAMMAD đã cung cấp thêm:
+
 - Là nền tảng để triển khai hệ thống TICKET. Tương đương với vai trò như của các sản phẩm OSTicket.
-- Tích hợp với các kênh như web, facebook, telegram để nhận và tương tác ticket.
+- Tích hợp với các kênh như web, facebook, telegram để nhận và tương tác ticket. Tức là cung cấp cơ chế nhận TICK qua nhiều kênh chứ không phụ thuộc vào UI của web.
+- Xem lịch sử ticket.
 - Tích hợp sẵn hệ thống livechat và cung cấp thông tin để tích hợp.
 - Sử dụng elasticsearch.
 - Cung cấp API, phù hợp tích hợp vào các giải pháp hiện có.
